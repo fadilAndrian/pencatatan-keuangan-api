@@ -15,6 +15,11 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->String("transaksi");
+            $table->Integer("jumlah");
+            $table->date("tanggal");
             $table->timestamps();
         });
     }
