@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\transactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/transaction', [transactionController::class, 'index']);
+Route::post('/transaction', [transactionController::class, 'store']);
+Route::put('/transaction/{id}', [transactionController::class, 'update']);
